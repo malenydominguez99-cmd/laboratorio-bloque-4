@@ -1,11 +1,17 @@
 package com.dinosaurpark.service;
 
+import java.util.Random;
+
+import com.dinosaurpark.event.EscapeEvent;
+import com.dinosaurpark.event.Event;
 import com.dinosaurpark.model.Dinosaurio;
 import com.dinosaurpark.model.Park;
+import com.dinosaurpark.monitor.MonitorService;
 
 public class SimulationEngine {
 
     private Park park;
+    private MonitorService monitor = new MonitorService();
 
     public SimulationEngine(Park park) {
         this.park = park;
@@ -13,7 +19,9 @@ public class SimulationEngine {
 
     public void run() {
 
-        System.out.println("*****INICIANDO SIMULACION DEL PARQUE*****");
+        System.out.println("INICIANDO SIMULACION DEL PARQUE");
+
+        Random random = new Random();
 
         for (int i = 1; i <= 5; i++) {
 
@@ -24,7 +32,7 @@ public class SimulationEngine {
             park.reducirEnergia(5);
 
             for (Dinosaurio d : park.getDinosaurios()) {
-
+                
                 d.actualizarEstado();
 
                 System.out.println(
@@ -35,10 +43,18 @@ public class SimulationEngine {
                 );
             }
 
+            if (random.nextInt(100) < 30) {
+
+                Event event = new EscapeEvent();
+                event.execute(park);
+            }
+
+            monitor.mostrarEstado(park, i);
+
             System.out.println("\nEstado del parque:");
             System.out.println("Energia: " + park.getEnergia());
             System.out.println("Visitantes: " + park.getVisitantes());
-            System.out.println("Cantidad de dinosaurios: " + park.getDinosaurios().size());
+            System.out.println("Dinosaurios: " + park.getDinosaurios().size());
         }
 
         System.out.println("\nSIMULACION TERMINADA");
