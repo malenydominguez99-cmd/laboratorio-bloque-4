@@ -7,6 +7,8 @@ public class Dinosaurio {
     private int edad;
     private double peso;
     private boolean peligroso;
+    private int nivelHambre; 
+    private String estado; // calmado, hambriento, agresivo
 
     public Dinosaurio(String nombre, String especie, int edad, double peso, boolean peligroso) {
         this.nombre = nombre;
@@ -14,6 +16,9 @@ public class Dinosaurio {
         this.edad = edad;
         this.peso = peso;
         this.peligroso = peligroso;
+
+        this.nivelHambre = 0;
+        this.estado = "calmado";
     }
 
     public String getNombre() {
@@ -36,6 +41,31 @@ public class Dinosaurio {
         return peligroso;
     }
 
+    public int getHambre() {
+        return nivelHambre;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+     public void aumentarHambre() {
+        this.nivelHambre++;
+
+        if (nivelHambre >= 5) {
+            this.estado = "hambriento";
+        }
+
+        if (nivelHambre >= 10 && peligroso) {
+            this.estado = "agresivo";
+        }
+    }
+
+     public void alimentar() {
+        this.nivelHambre = 0;
+        this.estado = "calmado";
+    }
+
     @Override
     public String toString() {
         return "Dinosaurio{" +
@@ -44,6 +74,8 @@ public class Dinosaurio {
                 ", edad=" + edad +
                 ", peso=" + peso +
                 ", peligroso=" + peligroso +
+                ", nivelHambre=" + nivelHambre +
+                ", estado='" + estado + '\'' +
                 '}';
     }
 }
