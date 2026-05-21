@@ -13,23 +13,34 @@ public class SimulationEngine {
 
     public void run() {
 
-        System.out.println("🦖 INICIANDO SIMULACIÓN DEL PARQUE 🦖");
+        System.out.println("*****INICIANDO SIMULACION DEL PARQUE*****");
 
-        for (int step = 1; step <= 10; step++) {
+        for (int i = 1; i <= 5; i++) {
 
-            System.out.println("\n=== CICLO " + step + " ===");
+            System.out.println("\n======================");
+            System.out.println("CICLO " + i);
+            System.out.println("======================");
 
             park.reducirEnergia(5);
 
             for (Dinosaurio d : park.getDinosaurios()) {
-                d.aumentarHambre();
-                System.out.println(d.getNombre() + " - estado: " + d.getEstado());
+
+                d.actualizarEstado();
+
+                System.out.println(
+                        "Nombre: " + d.getNombre() +
+                        " | Especie: " + d.getEspecie() +
+                        " | Hambre: " + d.getNivelHambre() +
+                        " | Estado: " + d.getEstado()
+                );
             }
 
-            System.out.println("🔋 Energía: " + park.getEnergia());
-            System.out.println("👥 Visitantes: " + park.getVisitantes());
+            System.out.println("\nEstado del parque:");
+            System.out.println("Energia: " + park.getEnergia());
+            System.out.println("Visitantes: " + park.getVisitantes());
+            System.out.println("Cantidad de dinosaurios: " + park.getDinosaurios().size());
         }
 
-        System.out.println("\n🛑 SIMULACIÓN TERMINADA");
+        System.out.println("\nSIMULACION TERMINADA");
     }
 }
