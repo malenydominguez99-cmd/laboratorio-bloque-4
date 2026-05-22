@@ -1,5 +1,6 @@
 package com.dinosaurpark.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Park {
@@ -8,7 +9,10 @@ public class Park {
     private int energia;
     private int visitantes;
 
-    public Park(List<Dinosaurio> dinosaurios, int energia, int visitantes) {
+    public Park(List<Dinosaurio> dinosaurios,
+                int energia,
+                int visitantes) {
+
         this.dinosaurios = dinosaurios;
         this.energia = energia;
         this.visitantes = visitantes;
@@ -27,7 +31,9 @@ public class Park {
     }
 
     public void reducirEnergia(int cantidad) {
+
         this.energia -= cantidad;
+
         if (this.energia < 0) {
             this.energia = 0;
         }
@@ -35,5 +41,18 @@ public class Park {
 
     public void aumentarVisitantes(int cantidad) {
         this.visitantes += cantidad;
+    }
+
+    public void agregarDinosaurio(
+            Dinosaurio dinosaurio
+    ) {
+
+        if (this.dinosaurios == null) {
+
+            this.dinosaurios =
+                    new ArrayList<>();
+        }
+
+        this.dinosaurios.add(dinosaurio);
     }
 }

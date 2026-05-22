@@ -10,12 +10,13 @@ public class ExpenseRepository {
         String sql =
                 "INSERT INTO expense (concept, amount) VALUES (?, ?)";
 
-        try (
-            Connection conn = DatabaseConnection.getConnection();
+        try {
+
+            Connection conn =
+                    DatabaseConnection.getConnection();
 
             PreparedStatement stmt =
-                    conn.prepareStatement(sql)
-        ) {
+                    conn.prepareStatement(sql);
 
             stmt.setString(1, concept);
             stmt.setDouble(2, amount);
@@ -29,7 +30,7 @@ public class ExpenseRepository {
 
             System.out.println(
                     "Error guardando gasto: "
-                    + e.getMessage());
+                            + e.getMessage());
         }
     }
 }
