@@ -1,5 +1,6 @@
 package com.dinosaurpark.event;
 
+import com.dinosaurpark.logger.EventLogger;
 import com.dinosaurpark.model.Park;
 
 public class StormEvent implements Event {
@@ -9,6 +10,8 @@ public class StormEvent implements Event {
 
         System.out.println("EVENTO: Tormenta torrencial");
 
+        EventLogger.log("Tormenta torrencial");
+        
         park.reducirEnergia(15);
 
         System.out.println("La tormenta afectó las instalaciones.");

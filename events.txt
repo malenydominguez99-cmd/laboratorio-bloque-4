@@ -1,0 +1,12 @@
+[2026-05-21T19:53:19.217623400] Escape de dinosaurio: Dino1
+[2026-05-21T19:53:19.227649500] Tormenta torrencial
+[2026-05-21T19:59:33.071912200] Escape de dinosaurio: Dino2
+[2026-05-21T19:59:33.080916900] Escape de dinosaurio: Dino1
+[2026-05-21T19:59:33.083687600] Apagón masivo en el parque
+[2026-05-21T19:59:33.089309500] Tormenta torrencial
+[2026-05-21T20:13:39.799362700] Apagón masivo en el parque
+[2026-05-21T20:13:39.808750300] Tormenta torrencial
+[2026-05-21T20:13:39.812287800] Tormenta torrencial
+[2026-05-21T20:13:39.814819800] Tormenta torrencial
+[2026-05-21T20:21:36.364716800] Apagón masivo en el parque
+[2026-05-21T20:21:36.370307600] Apagón masivo en el parque

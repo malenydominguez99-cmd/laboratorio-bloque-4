@@ -6,6 +6,7 @@ import java.util.List;
 import com.dinosaurpark.config.ConfigLoader;
 import com.dinosaurpark.model.Dinosaurio;
 import com.dinosaurpark.model.Park;
+import com.dinosaurpark.repository.ExpenseRepository;
 import com.dinosaurpark.repository.IncomeRepository;
 import com.dinosaurpark.service.SimulationEngine;
 
@@ -15,6 +16,14 @@ public class Main {
 
         IncomeRepository repo = new IncomeRepository();
         repo.saveIncome("Boletos", 1500);
+
+        ExpenseRepository expenseRepo =
+            new ExpenseRepository();
+
+        expenseRepo.saveExpense(
+            "Mantenimiento de cercas",
+            500
+        );
 
         ConfigLoader config = new ConfigLoader();
 
