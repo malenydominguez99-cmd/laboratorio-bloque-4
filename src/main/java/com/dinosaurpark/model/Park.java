@@ -6,6 +6,9 @@ import java.util.List;
 public class Park {
 
     private List<Dinosaurio> dinosaurios;
+    private List<Zone> zonas;
+    private List<Tourist> turistas;
+
     private int energia;
     private int visitantes;
 
@@ -16,10 +19,21 @@ public class Park {
         this.dinosaurios = dinosaurios;
         this.energia = energia;
         this.visitantes = visitantes;
+
+        this.zonas = new ArrayList<>();
+        this.turistas = new ArrayList<>();
     }
 
     public List<Dinosaurio> getDinosaurios() {
         return dinosaurios;
+    }
+
+    public List<Zone> getZonas() {
+        return zonas;
+    }
+
+    public List<Tourist> getTuristas() {
+        return turistas;
     }
 
     public int getEnergia() {
@@ -28,6 +42,28 @@ public class Park {
 
     public int getVisitantes() {
         return visitantes;
+    }
+
+    public void agregarDinosaurio(Dinosaurio dinosaurio) {
+        dinosaurios.add(dinosaurio);
+    }
+
+    public void agregarZona(Zone zona) {
+
+        zonas.add(zona);
+
+        System.out.println(
+                "Zona agregada: "
+                        + zona.getNombre());
+    }
+
+    public void agregarTurista(Tourist turista) {
+
+        turistas.add(turista);
+
+        System.out.println(
+                "Turista agregado: "
+                        + turista.getNombre());
     }
 
     public void reducirEnergia(int cantidad) {
@@ -41,18 +77,5 @@ public class Park {
 
     public void aumentarVisitantes(int cantidad) {
         this.visitantes += cantidad;
-    }
-
-    public void agregarDinosaurio(
-            Dinosaurio dinosaurio
-    ) {
-
-        if (this.dinosaurios == null) {
-
-            this.dinosaurios =
-                    new ArrayList<>();
-        }
-
-        this.dinosaurios.add(dinosaurio);
     }
 }

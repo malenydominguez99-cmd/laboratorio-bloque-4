@@ -8,6 +8,8 @@ import com.dinosaurpark.event.Event;
 import com.dinosaurpark.event.StormEvent;
 import com.dinosaurpark.model.Dinosaurio;
 import com.dinosaurpark.model.Park;
+import com.dinosaurpark.model.Tourist;
+import com.dinosaurpark.model.Zone;
 import com.dinosaurpark.monitor.MonitorService;
 
 public class SimulationEngine {
@@ -46,6 +48,19 @@ public class SimulationEngine {
                     " | Hambre: " + d.getNivelHambre() +
                     " | Estado: " + d.getEstado()
                 );
+            }
+
+            // MOVIMIENTO DE TURISTAS
+            for (Tourist turista : park.getTuristas()) {
+
+            int randomZone =
+                    (int) (Math.random()
+                            * park.getZonas().size());
+
+            Zone zona =
+                    park.getZonas().get(randomZone);
+
+            turista.entrarZona(zona);
             }
 
             int eventChance = random.nextInt(100);
