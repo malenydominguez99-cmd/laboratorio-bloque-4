@@ -1,38 +1,21 @@
-# 🦖 Simulación de Parque de Dinosaurios
+# 🦖 Parque Turístico de Dinosaurios
 
-## 📌 Descripción del proyecto
+## 📌 Descripción
 
-Este proyecto fue desarrollado en Java como parte del Laboratorio Bloque 4.  
+Este proyecto consiste en una simulación de un parque turístico de dinosaurios desarrollada en Java.
+El sistema permite administrar dinosaurios, turistas, zonas del parque, eventos aleatorios y recursos como energía e ingresos económicos.
 
-El sistema simula la administración y monitoreo de un parque de dinosaurios, permitiendo gestionar dinosaurios, eventos aleatorios, ingresos, gastos y monitoreo general del parque.
-
-Durante la simulación pueden ocurrir diferentes eventos que afectan el estado del parque, como escapes de dinosaurios, apagones o tormentas.
-
-Además, el sistema registra eventos en archivos de texto y almacena información en una base de datos MySQL.
+El objetivo principal es representar el funcionamiento básico de un parque temático mediante programación orientada a objetos, simulación por ciclos y manejo de eventos.
 
 ---
 
-# 🎯 Funcionalidades implementadas
+# ⚙️ Tecnologías utilizadas
 
-- Gestión de dinosaurios
-- Simulación por ciclos
-- Eventos aleatorios
-- Monitoreo del parque
-- Registro de ingresos
-- Registro de gastos
-- Persistencia de datos en MySQL
-- Registro de eventos en archivo `.txt`
-- Configuración externa mediante `config.properties`
-
----
-
-# 🛠️ Tecnologías utilizadas
-
-- Java
-- Maven
-- MySQL
-- JDBC
-- Git y GitHub
+* Java 17
+* Maven
+* MySQL
+* JUnit 5
+* JaCoCo
 
 ---
 
@@ -40,128 +23,126 @@ Además, el sistema registra eventos en archivos de texto y almacena informació
 
 ```plaintext
 src/main/java/com/dinosaurpark
-│
-├── config
-├── event
-├── logger
+
 ├── model
-├── monitor
+├── service
 ├── repository
-└── service
+├── event
+├── monitor
+├── config
 ```
 
----
+### 📌 Descripción de paquetes
 
-# ⚙️ Configuración
-
-El proyecto utiliza un archivo `config.properties` para manejar configuraciones generales del sistema.
-
-Ejemplo:
-
-```properties
-tourists=50
-initialEnergy=100
-dinosaurs=2
-cycles=5
-
-db.url=jdbc:mysql://localhost:3306/dinosaur_park
-db.user=root
-db.password=******
-```
+| Paquete    | Función                            |
+| ---------- | ---------------------------------- |
+| model      | Clases principales del sistema     |
+| service    | Lógica de simulación               |
+| repository | Conexión y manejo de base de datos |
+| event      | Eventos aleatorios del parque      |
+| monitor    | Monitoreo del estado del parque    |
+| config     | Configuración del sistema          |
 
 ---
 
-# 🎲 Eventos implementados
+# 🦕 Funcionalidades principales
 
-Actualmente el sistema cuenta con los siguientes eventos aleatorios:
-
-- Escape de dinosaurio
-- Apagón masivo
-- Tormenta torrencial
-
----
-
-# 🗄️ Base de datos
-
-## Crear base de datos
-
-```sql
-CREATE DATABASE dinosaur_park;
-```
+* Simulación por ciclos
+* Administración de dinosaurios
+* Flujo de turistas
+* Compra de boletos
+* Manejo de energía
+* Eventos aleatorios
+* Monitoreo del parque
+* Conexión a MySQL
+* Pruebas unitarias con JUnit
+* Cobertura de código con JaCoCo
 
 ---
 
-## Tabla de ingresos
+# 🏞️ Zonas del parque
 
-```sql
-CREATE TABLE income (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    concept VARCHAR(100),
-    amount DOUBLE
-);
-```
+El parque cuenta con las siguientes zonas:
 
----
-
-## Tabla de gastos
-
-```sql
-CREATE TABLE expense (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    concept VARCHAR(100),
-    amount DOUBLE
-);
-```
+* Lugar de Arribo
+* Recinto Central
+* Baños
+* Planta de Energía
+* Recintos de Observación
 
 ---
 
-# 📝 Registro de eventos
+# 🎫 Flujo de turistas
 
-Todos los eventos generados durante la simulación se almacenan automáticamente en el archivo:
+Los turistas pueden:
 
-```plaintext
-events.txt
-```
+1. Ingresar al parque
+2. Comprar boletos
+3. Acceder a distintas zonas
+4. Recorrer el parque durante la simulación
 
 ---
 
-# 🧠 Patrones de diseño utilizados
+# ⚡ Eventos aleatorios
 
-## Strategy
+Durante la simulación pueden ocurrir eventos como:
 
-Utilizado en el sistema de eventos:
-
-- Event
-- EscapeEvent
-- BlackoutEvent
-- StormEvent
-
-## Singleton
-
-Utilizado en la clase:
-
-- DatabaseConnection
+* Escape de dinosaurio
+* Apagón masivo
+* Tormenta torrencial
 
 ---
 
 # ▶️ Ejecución del proyecto
 
-El proyecto puede ejecutarse desde:
-
-```plaintext
-Main.java
-```
-
-o mediante Maven:
+## Compilar proyecto
 
 ```bash
 mvn compile
-mvn exec:java -Dexec.mainClass="com.dinosaurpark.Main"
-``` 
+```
+
+## Ejecutar pruebas
+
+```bash
+mvn test
+```
+
+## Generar reporte de cobertura
+
+```bash
+mvn jacoco:report
+```
+
+---
+
+# 📊 Cobertura de pruebas
+
+El proyecto incluye pruebas unitarias utilizando JUnit 5 y generación de cobertura mediante JaCoCo.
+
+Cobertura alcanzada:
+
+* 52% de cobertura total
+
+---
+
+# 🗄️ Base de datos
+
+El proyecto utiliza MySQL para registrar:
+
+* ingresos
+* gastos
+* operaciones básicas del parque
+
+El script de creación de base de datos se encuentra en:
+
+```plaintext
+database.sql
+```
 
 ---
 
 # 👩‍💻 Autor
+
 Maleny Dominguez Sarmiento
 
 Proyecto académico desarrollado para el Laboratorio Bloque 4.

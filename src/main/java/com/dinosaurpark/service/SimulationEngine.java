@@ -32,9 +32,10 @@ public class SimulationEngine {
 
         for (int i = 1; i <= cycles; i++) {
 
-            System.out.println("\n======================");
-            System.out.println("CICLO " + i);
-            System.out.println("======================");
+            System.out.println("\n");
+            System.out.println("╔══════════════════════════════╗");
+            System.out.println("║         CICLO " + i + "              ║");
+            System.out.println("╚══════════════════════════════╝");
 
             park.reducirEnergia(5);
 
@@ -42,12 +43,11 @@ public class SimulationEngine {
 
                 d.actualizarEstado();
 
-                System.out.println(
-                    "Nombre: " + d.getNombre() +
-                    " | Especie: " + d.getEspecie() +
-                    " | Hambre: " + d.getNivelHambre() +
-                    " | Estado: " + d.getEstado()
-                );
+                System.out.println("----------------------------------");
+                System.out.println("Dinosaurio: " + d.getNombre());
+                System.out.println("Especie: " + d.getEspecie());
+                System.out.println("Hambre: " + d.getNivelHambre());
+                System.out.println("Estado: " + d.getEstado());
             }
 
             // MOVIMIENTO DE TURISTAS
@@ -83,10 +83,12 @@ public class SimulationEngine {
 
             monitor.mostrarEstado(park, i);
 
-            System.out.println("\nEstado del parque:");
-            System.out.println("Energia: " + park.getEnergia());
+            System.out.println("\nRESUMEN DEL PARQUE");
+            System.out.println("══════════════════════════");
+            System.out.println("Energía: " + park.getEnergia());
             System.out.println("Visitantes: " + park.getVisitantes());
             System.out.println("Dinosaurios: " + park.getDinosaurios().size());
+            System.out.println("══════════════════════════");
         }
 
         System.out.println("\nSIMULACION TERMINADA");

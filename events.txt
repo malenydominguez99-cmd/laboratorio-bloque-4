@@ -25,3 +25,10 @@
 [2026-05-27T20:01:56.637326900] Escape de dinosaurio: Blue
 [2026-05-27T20:01:56.641612400] Tormenta torrencial
 [2026-05-27T20:01:56.715166] Tormenta torrencial
+[2026-05-27T20:21:41.636581800] Apagón masivo en el parque
+[2026-05-27T20:21:41.646527200] Escape de dinosaurio: Dino2
+[2026-05-27T20:21:41.650556100] Apagón masivo en el parque
+[2026-05-27T20:31:00.843692] Apagón masivo en el parque
+[2026-05-27T20:31:00.871378500] Escape de dinosaurio: Blue
+[2026-05-27T20:31:00.875233600] Tormenta torrencial
+[2026-05-27T20:31:01.689749900] Escape de dinosaurio: Blue
